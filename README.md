@@ -1,8 +1,8 @@
-#Zoom Registration Script
+# Zoom Registration Script
 
 This is a short script that was made to help my friends automate the registration for zoom meetings where they have the EmailID and first name of the registrants in a csv file. The sample CSV file is given in the repository.
 
-##Usage
+## Usage
 
 Install the required packages using npm.
 
