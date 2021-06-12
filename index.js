@@ -67,7 +67,7 @@ function csvJSON(csv){
         })
         .catch(function (err) {
             try {
-                fs.appendFileSync('error.txt',err.toString()+'\n'+'Data of the user which caused the error is ->'+user.toString()+'\n\n')
+                fs.appendFileSync('error.txt',err.toString()+'\n'+'Data of the user which caused the error is ->'+'first_name:'+user.first_name+", last_name:"+user.last_name+", email:"+user.email+'\n\n')
             } catch (error) {
                 console.log(error);
             }
