@@ -15,4 +15,6 @@ The API_key and the API_Secret are given in the config.js file. Please do replac
 The csv file accessed by the script is registrants.csv. Either rename the file name as you wish or do replace the contents of the csv file with the data to be used.
 
 Change the the meetid variable in the index.js file with the meeting Id you wish to register
+
+If any of the users were unable to register, it will generate a file named "error.txt" stating the reason why it failed
  
