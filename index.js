@@ -7,16 +7,8 @@ const fs=require('fs');
 meetid = MEETING-ID     //Change meetID
 
 async function apiCall(userData){
-
-    let data
-  try {
-      data = fs.readFileSync('registrants.csv', 'utf8')
-    } catch (err) {
-        console.error(err)
-    }
-    console.log(data)
-    
-    const userData=csvJSON(data);  
+   
+      
     for(const user of userData){
 
         const payload = {
@@ -75,6 +67,16 @@ function csvJSON(csv){
     }
     return result; 
   }
+
+let data
+  try {
+      data = fs.readFileSync('registrants.csv', 'utf8')
+    } catch (err) {
+        console.error(err)
+    }
+const userData=csvJSON(data);
+apiCall(userData);
+ 
   
   
   
