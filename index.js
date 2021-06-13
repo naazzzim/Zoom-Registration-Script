@@ -6,26 +6,9 @@ const fs=require('fs');
 
 meetid = MEETING-ID     //Change meetID
 
-function csvJSON(csv){
-    var lines=csv.split("\n");
-    var result = [];
-    var headers=lines[0].split(",");
-    for(var i=1;i<lines.length;i++){
-        var obj = {};
-        var currentline=lines[i].split(",");
-        for(var j=0;j<headers.length;j++){
-            obj[headers[j]] = currentline[j];
-        }
-        
-        if(obj[headers[0]]==='')
-            continue
-        result.push(obj);
-    }
-    return result; 
-  }
-  
-  
-  let data
+async function apiCall(userData){
+
+    let data
   try {
       data = fs.readFileSync('registrants.csv', 'utf8')
     } catch (err) {
@@ -61,7 +44,7 @@ function csvJSON(csv){
             method: 'POST' 
         };
         
-        rp(options)
+        await rp(options)
         .then(function (response) {
             console.log(response);
         })
@@ -73,6 +56,28 @@ function csvJSON(csv){
             }
         });
     }
+}
+
+function csvJSON(csv){
+    var lines=csv.split("\n");
+    var result = [];
+    var headers=lines[0].split(",");
+    for(var i=1;i<lines.length;i++){
+        var obj = {};
+        var currentline=lines[i].split(",");
+        for(var j=0;j<headers.length;j++){
+            obj[headers[j]] = currentline[j];
+        }
+        
+        if(obj[headers[0]]==='')
+            continue
+        result.push(obj);
+    }
+    return result; 
+  }
+  
+  
+  
     
     
     
